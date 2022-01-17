@@ -7,7 +7,7 @@ public class Game {
 
 	int iConInput;
 	int randomNumber;
-	int life = 5;
+	int life = 4;
 	int difference;
 
 	public void game() {
