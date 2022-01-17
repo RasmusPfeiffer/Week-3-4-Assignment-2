@@ -14,7 +14,7 @@ public class Game {
 
 		this.getInput();
 		this.getDifference();
-		if (iConInput <= 1 || iConInput >= 100) {
+		if (iConInput < 1 || iConInput > 100) {
 			this.errorHandler();
 		} else if (difference == 0) {
 			System.out.println("Congratulations you guessed right, the number was " + randomNumber);
