@@ -7,8 +7,6 @@ public class Main {
 		Game game= new Game();
 		game.setRandom();
 		game.run();
-		System.out.println("The number was: " + game.randomNumber);
-		System.out.println("You were off by:" + game.difference);
 	}
 
 }
