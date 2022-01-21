@@ -27,6 +27,9 @@ public class Game {
 					System.out.println("You should guess higher!");
 				}
 				--life;
+			} else {
+				System.out.println("You lost,the number was: " + randomNumber);
+				System.out.println("You were off by:" + difference);
 			}
 		}
 	}
