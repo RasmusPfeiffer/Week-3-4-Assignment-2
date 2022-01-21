@@ -7,22 +7,27 @@ public class Game {
 
 	int iConInput;
 	int randomNumber;
-	int life = 4;
+	int life = 5;
 	int difference;
 
 	public void game() {
 
-		this.getInput();
-		this.getDifference();
-		if (iConInput < 1 || iConInput > 100) {
-			this.errorHandler();
-		} else if (difference == 0) {
-			System.out.println("Congratulations you guessed right, the number was " + randomNumber);
-		} else if (life > 0) {
-			this.loop();
-		} else {
-			System.out.println("The number was: " + randomNumber);
-			System.out.println("You were off by:" + difference);
+		while (life > 0) {
+			this.getInput();
+			this.getDifference();
+			if (iConInput < 1 || iConInput > 100) {
+				this.errorHandler();
+			} else if (difference == 0) {
+				System.out.println("Congratulations you guessed right, the number was " + randomNumber);
+				break;
+			} else if (iConInput != randomNumber) {
+				if (randomNumber < iConInput) {
+					System.out.println("You should guess lower!");
+				} else {
+					System.out.println("You should guess higher!");
+				}
+				--life;
+			}
 		}
 	}
 
@@ -40,19 +45,6 @@ public class Game {
 		this.game();
 	}
 
-	public void loop() {
-
-		while (iConInput != randomNumber && life > 0) {
-			if (randomNumber < iConInput) {
-				System.out.println("You should guess lower!");
-			} else {
-				System.out.println("You should guess higher!");
-			}
-			--life;
-			this.game();
-		}
-	}
-
 	public void getDifference() {
 
 		difference = iConInput - randomNumber;
@@ -62,7 +54,7 @@ public class Game {
 	}
 
 	public void run() {
-		
+
 		this.game();
 	}
 
